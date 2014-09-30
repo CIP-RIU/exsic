@@ -26,7 +26,11 @@
 #' @docType package
 NULL
 
-library(markdown)
+#library(markdown)
+if(getRversion() >= "2.15.1")  utils::globalVariables(c(".obj1", "obj2"))
+
+globalVariables(c("format.SBMG", "format.PK", "format.ASPT", "format.NYBG"))
+
  
 #' @name potato
 #' @title Wild potato specimen sample list 
@@ -41,6 +45,8 @@ library(markdown)
 #' @author David M. Spooner with format edits from R. Simon
 #' @family datasets
 #' @aliases potato
+#' @export
+#' @keywords dataset
 NULL
 
 
@@ -60,6 +66,8 @@ NULL
 #' @author R. Simon
 #' @family formats
 #' @aliases format.SBMG
+#' @keywords dataset
+#' @export
 NULL
 
 #' @name format.ASPT
@@ -79,6 +87,7 @@ NULL
 #' @family formats
 #' @source \url{http://www.aspt.net/publications/sysbot/checklist_systbot.php}
 #' @aliases format.ASPT
+#' @keywords dataset
 NULL
 
 
@@ -102,6 +111,7 @@ NULL
 #' @author R. Simon
 #' @source \url{http://www.nybg.org/botany/ofn/fn-gd3.htm}
 #' @aliases format.NYBG
+#' @keywords dataset
 NULL
 
 
@@ -122,6 +132,7 @@ NULL
 #' @family formats
 #' @source \url{http://www.pensoft.net/journals/phytokeys/about/Author Guidelines}
 #' @aliases format.PK
+#' @keywords dataset
 NULL
 
 
