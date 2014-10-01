@@ -872,10 +872,10 @@ exsic <- function(data,
                   html="exsic.html", 
                   sortfilter=NULL, 
                   format=format.SBMG,
-                  headers = c("Citations of Specimens", "Numerical List of Species", 
-                              "Index to Numbered Collections",
-                              "*The numbers in parentheses refer to the corresponding species
-                              in the Numerical List of Species.*\n\r")){
+                  headers = 
+                    c("Citations of Specimens", "Numerical List of Species", 
+                      "Index to Numbered Collections",
+                      "*Numbers refer to species in the Numerical List.*\n\r")){
   res = ""
   chk = FALSE
   exsic.format = format
