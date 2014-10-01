@@ -646,7 +646,7 @@ index.species.short<-function(atable=NULL){
 index.collections <-function(atable = NULL, format = format.SBMG){
   res=""
   stopifnot(is.format(format))
-  group.specimens = TRUE
+  group.specimens.bool = TRUE
   group.join = format[format$field=="group.specimens","sept"]
   species.name = FALSE
   species.sty = "();number;none"
@@ -654,7 +654,7 @@ index.collections <-function(atable = NULL, format = format.SBMG){
   
   try({
     if(format[format$field=="group.specimens","style"]=="no") {
-      group.specimens = FALSE
+      group.specimens.bool = FALSE
     } 
     
   }, silent = TRUE)
@@ -677,7 +677,14 @@ index.collections <-function(atable = NULL, format = format.SBMG){
     }, silent= T)
     
     
-    atable = atable[order(atable[,"collcite"]) ,]
+    #atable = atable[order(atable[,"collcite"]) ,]
+    atable$species = str_trim(atable$species)
+    atable$number = str_trim(atable$number)
+    atable$collcite = str_trim(atable$collcite)
+    
+    atable = atable[with(atable, order(collcite, species, number)) ,]
+    
+    
     
     spi = unique(atable$species)
     dbs = atable
@@ -707,7 +714,7 @@ index.collections <-function(atable = NULL, format = format.SBMG){
         }
       }
       #print(res)
-      if(group.specimens){
+      if(group.specimens.bool){
         res = group.specimens(res, group.join)  
       }
       res=paste(res1, res,"\n\n ")
@@ -867,7 +874,8 @@ exsic <- function(data,
                   format=format.SBMG,
                   headers = c("Citations of Specimens", "Numerical List of Species", 
                               "Index to Numbered Collections",
-                              "*The numbers in parentheses refer to the corresponding species in the Numerical List of Species.*\n\r")){
+                              "*The numbers in parentheses refer to the corresponding species
+                              in the Numerical List of Species.*\n\r")){
   res = ""
   chk = FALSE
   exsic.format = format
