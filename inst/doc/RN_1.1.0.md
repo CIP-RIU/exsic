@@ -21,6 +21,11 @@ Bug fixes
 -------
 - grouping of specimen numbers by species in Index to Numbered Collections fixed.
 
+Changes
+--------
+- Vignette was removed from building process
+- LICENSE was changed to the new CIP license base on MIT open source license.
+
 
 Download & source code
 ========
