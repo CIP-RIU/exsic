@@ -45,12 +45,12 @@ globalVariables(c("format.SBMG", "format.PK", "format.ASPT", "format.NYBG"))
 #' @author David M. Spooner with format edits from R. Simon
 #' @family datasets
 #' @aliases potato
-#' @export
 #' @keywords dataset
 NULL
 
 
 #' @name format.SBMG
+#' @aliases format_SBMG
 #' @title A formatting scheme following SBMG (Systematic Botany Monographs) conventions for an exsiccatae record.
 #'
 #' @format A dataframe with 9 entries and three variables
@@ -67,7 +67,6 @@ NULL
 #' @family formats
 #' @aliases format.SBMG
 #' @keywords dataset
-#' @export
 NULL
 
 #' @name format.ASPT
@@ -265,8 +264,14 @@ compl.table <- function(recs){
   }
   
   atbl = recs[,must.have]
+  
   for(i in 1:ncol(atbl)){
-    atbl[atbl[,i]=="",i] = missing.r[i]
+    #print(i)
+    #print(atbl[,i])
+    #atbl[atbl[,i]=="",i] = missing.r[i]
+    if(atbl[, i]=="" | is.na(atbl[, i]) | atbl[, i] == "NA") {
+      atbl[, i] = missing.r[i]
+    }
   }
   
   if(any( atbl$genus == "Unknown" )){
