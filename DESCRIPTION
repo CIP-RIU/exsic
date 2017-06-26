@@ -7,7 +7,7 @@ Authors@R: as.person(c(
     "Reinhard Simon (CIP) <R.SIMON@CGIAR.ORG> [aut, cre]",
     "David M. Spooner (USDA) [aut]",
     "International Potato Center [cph]"))
-Maintainer: Reinhard Simon <R.SIMON@CGIAR.ORG>
+Maintainer: Ivan Perez <i.perez@cgiar.org>
 Description: The package provides tools for botanists, plant taxonomists,
     curators of plant genebanks and perhaps other biological collections.
 License: MIT + file LICENSE
